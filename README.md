@@ -54,4 +54,3 @@ IPC(국제특허분류) 코드는 특허 문서를 체계적으로 분류하고 
 - KorPatBERT 모델은 한국특허정보원에서 제공한 모델으로 "assets/특허분야 사전학습 언어모델(KorPatBERT) 사용자 매뉴얼.pdf" 파일을 참고하여 설치 및 사용하셔야 합니다.
 - 한국어 형태소 분석을 위해서는 mecab-ko가 필수적으로 필요하며 mecab.zip 파일의 압축 해제 후 "assets/특허분야 사전학습 언어모델(KorPatBERT) 사용자 매뉴얼.pdf"에 따라 설치하여 사용하셔야 합니다.
 - KorPatBERT 모델의 가중치 파일은 "pretrained.zip" 파일의 압축 해제 후 사용하실 수 있습니다.
-# KorPatBERT-CenterLoss

@@ -1,0 +1,6 @@
+dataset/*
+korpatbert-centerLoss.h5
+mecab.zip
+pretrained.zip
+assets/특허분야 사전학습 언어모델(KorPatBERT) 사용자 매뉴얼.pdf
+KorPatBERT와 CenterLoss를 활용한 KNN 기반 IPC 자동분류 연구.pdf

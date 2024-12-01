@@ -18,7 +18,7 @@ IPC(국제특허분류) 코드는 특허 문서를 체계적으로 분류하고 
 
 ## 파일 설명
 
-- **KorPatBERT와 CenterLoss를 활용한 KNN 기반 IPC 자동분류 연구.pdf**: 본 연구의 내용 정리된 PDF 파일.
+- **KorPatBERT_CenterLoss.pdf**: 본 연구의 내용 정리된 PDF 파일.
 - dataset: 강남대학교 특허코드 분류 경진대회 데이터셋
   - DS학술제-모델링경진대회\_Train.xlsx: 학습 데이터셋
   - DS학술제-모델링경진대회\_Valid.xlsx: 테스트 데이터셋

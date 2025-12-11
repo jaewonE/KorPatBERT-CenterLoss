@@ -9,8 +9,9 @@
 들어가기에 앞서, 친절히 **KorPatBERT** 모델을 제공해주신 **한국특허정보원**에 깊은 감사를 드립니다.
 
 - **Main Report**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/KorPatBERT_CenterLoss.pdf
-- **Main Notebook**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/korpatbert-centerLoss.ipynb
-- **Award**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg
+- **Main Notebook**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/src/korpatbert/korpatbert-centerLoss.ipynb
+- **Main Presentation**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pdf, [PPT](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pptx)
+- **Award**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg, [picture](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award_picture.jpg)
 
 ## Abstract
 
@@ -29,29 +30,43 @@ IPC(국제특허분류) 코드는 전 세계적으로 통용되는 표준화된 
 본 레포지토리의 파일은 연구 결과 보고서, 데이터셋, 그리고 제안 모델과 비교 모델의 소스 코드로 구성되어 있습니다. 하지만 규정과 계약에 따라 경진대회 데이터셋과 KorPatBERT의 가중치는 공개되어 있지 않습니다.
 
 #### 1. Main Report
+
 - **KorPatBERT_CenterLoss.pdf**: 본 연구의 배경, 방법론, 실험 결과 및 분석 내용을 정리한 최종 보고서입니다.
 
-#### 2. Dataset(비공개)
+#### 2. Document
+
+- [presentation.pptx](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pptx): 발표 파일
+- [presentation.pdf](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pdf): 발표 자료(PPT의 PDF)
+
+#### 3. Dataset(비공개)
+
 2024년 강남대학교 데이터분석 모델링 경진대회에서 제공된 데이터셋입니다.
-- **DS학술제-모델링경진대회_Train.xlsx**(비공개): 모델 학습을 위한 데이터셋
-- **DS학술제-모델링경진대회_Valid.xlsx**(비공개): 모델 성능 평가를 위한 검증 데이터셋
 
-#### 3. Source Code
+- **DS학술제-모델링경진대회\_Train.xlsx**(비공개): 모델 학습을 위한 데이터셋
+- **DS학술제-모델링경진대회\_Valid.xlsx**(비공개): 모델 성능 평가를 위한 검증 데이터셋
 
-##### A. 제안 모델 (KorPatBERT 기반)
+#### 4. Source Code(src 폴더)
+
+##### A. 제안 모델 (KorPatBERT 기반, src/korpatbert 폴더)
+
 본 연구의 핵심인 특허 전용 언어모델(KorPatBERT)을 활용한 모델링 코드입니다.
+
 - **korpatbert-centerLoss.ipynb**: KorPatBERT에 CenterLoss를 적용한 제안 모델의 학습 및 구현 코드 (**Main**)
 - **test-korpatbert-centerLoss.ipynb**: 학습된 제안 모델을 테스트 데이터셋으로 평가하기 위한 테스트 코드
 - **korpatbert.ipynb**: 성능 비교를 위한 KorPatBERT 단독 사용(Softmax only) 모델 코드
 - **korpatbert-centerLoss.h5**(비공개): 학습이 완료된 제안 모델의 가중치(Weights) 파일
 
-##### B. 비교 모델 1 (KoBERT 기반)
+##### B. 비교 모델 1 (KoBERT 기반, src/kobert 폴더)
+
 특허 전용 모델이 아닌 일반 한국어 BERT 모델(KoBERT)을 적용한 비교군입니다.
+
 - **kobert-centerLoss.ipynb**: KoBERT에 CenterLoss를 적용한 모델 코드
 - **kobert.ipynb**: KoBERT 단독 사용 모델 코드
 
-##### C. 비교 모델 2 (전통적 기계학습)
+##### C. 비교 모델 2 (전통적 기계학습, src/ml 폴더)
+
 딥러닝 모델과의 성능 비교를 위해 구현한 기계학습 알고리즘 코드입니다.
+
 - **knn.ipynb**: K-Nearest Neighbors (KNN) 기반 분류 코드
 - **svm.ipynb**: Support Vector Machine (SVM) 기반 분류 코드
 - **naive_bayesian.ipynb**: Naive Bayes 기반 분류 코드

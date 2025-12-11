@@ -8,10 +8,10 @@
 
 들어가기에 앞서, 친절히 **KorPatBERT** 모델을 제공해주신 **한국특허정보원**에 깊은 감사를 드립니다.
 
-- **Main Report**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/KorPatBERT_CenterLoss.pdf
-- **Main Notebook**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/src/korpatbert/korpatbert-centerLoss.ipynb
-- **Main Presentation**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pdf, [PPT](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pptx)
-- **Award**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg, [picture](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award_picture.jpg)
+- **Main Report**: [KorPatBERT_CenterLoss.pdf](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/KorPatBERT_CenterLoss.pdf)
+- **Main Notebook**: [korpatbert-centerLoss.ipynb](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/src/korpatbert/korpatbert-centerLoss.ipynb)
+- **Main Presentation**: [presentation.pptx](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pptx), [presentation.pdf](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pdf)
+- **Award**: ![Award.jpg](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg), [picture](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award_picture.jpg)
 
 ## Abstract
 

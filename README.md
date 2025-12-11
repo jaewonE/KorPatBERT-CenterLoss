@@ -2,40 +2,59 @@
 
 > 201904008 곽재원, 202104218 백종민
 
-들어가기 전에, 친절히 KorPatBERT 모델을 제공해주신 **한국특허정보원**에게 감사드립니다.
+본 레포지토리는 2024년 강남대학교 데이터분석 모델링 경진대회 주제인 **특허 문서의 IPC 국제특허분류 코드 분류**를 수행하기 위해 작성되었습니다.
 
-**Main Report**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/KorPatBERT_CenterLoss.pdf
+본 연구에서는 객체 탐지를 위해 고안된 CenterLoss 기법을 자연어 처리(NLP) 모델인 KorPatBERT에 접목하였습니다. 이를 통해 단순히 KorPatBERT를 적용했을 때보다 3.82% 향상된 성능을 도출하였으며, CenterLoss의 토큰 시각화를 통해 모델의 설명 가능성을 확보하였습니다. 그 결과, 대회에서 가장 우수한 예측 성능을 인정받아 1등(최우수)을 수상하였습니다.
+
+들어가기에 앞서, 친절히 **KorPatBERT** 모델을 제공해주신 **한국특허정보원**에 깊은 감사를 드립니다.
+
+- **Main Report**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/KorPatBERT_CenterLoss.pdf
+- **Main Notebook**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/korpatbert-centerLoss.ipynb
+- **Award**: https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg
 
 ## Abstract
 
-IPC(국제특허분류) 코드는 특허 문서를 체계적으로 분류하고 검색하는 데 필수적인 도구로, 전 세계적으로 통용되는 표준화된 분류 체계입니다. 현재 국내에서는 한국특허기술진흥원에서 특허 실용신안 및 PCT 국제특허 출원에 대해 기술 내용을 파악하고 적절한 IPC 코드와 CPC 코드를 부여하고 있습니다. 그러나 이러한 작업은 수작업으로 이루어져 많은 시간과 비용이 소요됩니다. 방대한 특허 출원 문서의 분석을 보조하기 위해 다양한 데이터 마이닝 및 기계학습 알고리즘이 적용되고 있으나, 이러한 방법들은 충분한 문맥적 의미를 포착하지 못하고, 새롭게 등장하는 기술 분야나 용어에 유연하게 대응하기 어렵다는 한계가 있습니다.
+IPC(국제특허분류) 코드는 전 세계적으로 통용되는 표준화된 분류 체계로, 특허 문서를 효율적으로 관리하고 검색하는 데 필수적인 도구입니다. 현재 국내에서는 한국특허기술진흥원 등 전문 기관에서 수작업으로 특허의 기술 내용을 분석하여 IPC 및 CPC 코드를 부여하고 있으나, 이는 막대한 시간과 비용을 수반합니다. 이를 보조하기 위해 기존의 기계학습 기반 자동 분류 연구가 진행되어 왔으나, 텍스트의 문맥적 의미를 충분히 반영하지 못하거나 신조어 및 신기술 용어 처리에 한계를 보여왔습니다.
 
-이에 따라 최근에는 문맥적 의미와 표현을 잘 포착하고 다국어를 지원하는 BERT 모델 등 자연어 처리(NLP)를 활용한 IPC 자동분류 연구가 증가하고 있습니다. 그러나 이러한 NLP 기반 방법은 클래스 불균형의 영향을 크게 받아, 활발하지 않은 분야(Cold Fields)에서 정확도와 재현율(Recall)이 낮아지며 모델 과적합의 위험성이 있습니다.
+최근에는 이러한 한계를 극복하기 위해 BERT와 같은 자연어 처리(NLP) 모델을 활용한 연구가 활발히 진행되고 있습니다. 그러나 일반적인 NLP 기반 방법론은 데이터 클래스 불균형(Class Imbalance) 문제에 취약하여, 데이터가 부족한 소외 분야(Cold Fields)에서 재현율(Recall)이 저하되거나 모델이 과적합되는 문제가 발생하기에 특허 문서 분류에 있어 활용성이 제한됩니다.
 
-본 연구에서는 한국어 특허 문서로 사전 학습된 KorPatBERT 모델을 통해 특징 벡터를 추출하고, CenterLoss 손실 함수를 적용하여 KNN 기계학습 알고리즘 기반의 IPC 자동분류 방법을 제안합니다. 강남대학교 특허코드 분류 경진대회 데이터셋을 사용하여 G06F, G06Q, G16H 총 3가지 서브클래스 레벨의 분류를 수행한 결과, 91.03%의 정확도를 달성하였습니다. 이는 동일한 하이퍼파라미터로 KorPatBERT를 적용했을 때보다 3.82% 향상된 성능입니다.
+본 연구는 **2024년 강남대학교 데이터분석 모델링 경진대회**의 일환으로, 이러한 문제를 해결하기 위해 한국어 특허 문서에 특화된 사전 학습 모델인 **KorPatBERT**와 특징 벡터의 응집력을 강화하는 **CenterLoss** 함수를 결합한 IPC 코드 분류 모델을 제안합니다. 본 모델은 KorPatBERT를 통해 추출된 문맥 벡터에 CenterLoss를 적용하여 클래스 간 분별력을 높이는 한편, 특징 공간 내에서 데이터 간의 거리와 관계를 재정립합니다. 이를 통해 KNN과 유사한 방식으로 토큰 간의 분산 및 관계성을 시각화하고, 결과적으로 모델의 설명력을 강화하는 데 목적을 둡니다.
 
-이를 통해 IPC 서브클래스 레벨까지의 분류 수행 시 NLP 기법에서 발생하는 클래스 불균형 및 모델 과적합을 방지하는 데 기여할 수 있음을 확인하였습니다.
+대회 데이터셋을 활용하여 **G06F, G06Q, G16H** 세 가지 주요 서브클래스에 대한 분류 성능을 평가한 결과, **91.03%의 정확도**를 달성하였습니다. 이는 동일한 하이퍼파라미터 환경에서 KorPatBERT만을 단독으로 사용했을 때보다 **3.82% 향상된 성능**입니다. 결론적으로, 본 연구에서 제안하는 기법이 특허 문서 분류 시 발생하는 클래스 불균형 문제를 완화하고 모델의 일반화 성능을 높이는 데 유효함을 확인하였습니다.
 
-> Keyword: IPC, KorPatBERT, CenterLoss, KNN
+> **Keywords**: IPC Classification, KorPatBERT, CenterLoss, KNN, Class Imbalance
 
-## 파일 설명
+## 파일 구성 및 설명
 
-- **KorPatBERT_CenterLoss.pdf**: 본 연구의 내용 정리된 PDF 파일.
-- dataset: 강남대학교 특허코드 분류 경진대회 데이터셋
-  - DS학술제-모델링경진대회\_Train.xlsx: 학습 데이터셋
-  - DS학술제-모델링경진대회\_Valid.xlsx: 테스트 데이터셋
-- 기계학습 알고리즘: 기계학습 알고리즘과 BERT 기반의 모델의 성능 비교를 위해 작성된 코드.
-  - knn.ipynb: KNN 알고리즘을 이용한 IPC 자동분류 코드
-  - svm.ipynb: SVM 알고리즘을 이용한 IPC 자동분류 코드
-  - naive_bayesian.ipynb: Naive Bayesian 알고리즘을 이용한 IPC 자동분류 코드
-- KorPatBERT를 사용하지 않은 모델(KoBert 사용)
-  - kobert.ipynb: KoBERT 모델을 이용한 IPC 자동분류 코드
-  - kobert-centerLoss.ipynb: KoBERT 모델에 CenterLoss를 적용한 IPC 자동분류 코드
-- KorPatBERT를 사용한 모델
-  - korpatbert.ipynb: KorPatBERT 모델을 이용한 IPC 자동분류 코드
-  - **korpatbert-centerLoss.ipynb**: KorPatBERT 모델에 CenterLoss를 적용한 IPC 자동분류 코드
-  - **test-korpatbert-centerLoss.ipynb**: KorPatBERT 모델에 CenterLoss를 적용한 IPC 자동분류 코드(테스트용)
-  - korpatbert-centerLoss.h5: KorPatBERT 모델에 CenterLoss를 적용한 모델의 가중치 파일
+본 레포지토리의 파일은 연구 결과 보고서, 데이터셋, 그리고 제안 모델과 비교 모델의 소스 코드로 구성되어 있습니다. 하지만 규정과 계약에 따라 경진대회 데이터셋과 KorPatBERT의 가중치는 공개되어 있지 않습니다.
+
+#### 1. Main Report
+- **KorPatBERT_CenterLoss.pdf**: 본 연구의 배경, 방법론, 실험 결과 및 분석 내용을 정리한 최종 보고서입니다.
+
+#### 2. Dataset(비공개)
+2024년 강남대학교 데이터분석 모델링 경진대회에서 제공된 데이터셋입니다.
+- **DS학술제-모델링경진대회_Train.xlsx**(비공개): 모델 학습을 위한 데이터셋
+- **DS학술제-모델링경진대회_Valid.xlsx**(비공개): 모델 성능 평가를 위한 검증 데이터셋
+
+#### 3. Source Code
+
+##### A. 제안 모델 (KorPatBERT 기반)
+본 연구의 핵심인 특허 전용 언어모델(KorPatBERT)을 활용한 모델링 코드입니다.
+- **korpatbert-centerLoss.ipynb**: KorPatBERT에 CenterLoss를 적용한 제안 모델의 학습 및 구현 코드 (**Main**)
+- **test-korpatbert-centerLoss.ipynb**: 학습된 제안 모델을 테스트 데이터셋으로 평가하기 위한 테스트 코드
+- **korpatbert.ipynb**: 성능 비교를 위한 KorPatBERT 단독 사용(Softmax only) 모델 코드
+- **korpatbert-centerLoss.h5**(비공개): 학습이 완료된 제안 모델의 가중치(Weights) 파일
+
+##### B. 비교 모델 1 (KoBERT 기반)
+특허 전용 모델이 아닌 일반 한국어 BERT 모델(KoBERT)을 적용한 비교군입니다.
+- **kobert-centerLoss.ipynb**: KoBERT에 CenterLoss를 적용한 모델 코드
+- **kobert.ipynb**: KoBERT 단독 사용 모델 코드
+
+##### C. 비교 모델 2 (전통적 기계학습)
+딥러닝 모델과의 성능 비교를 위해 구현한 기계학습 알고리즘 코드입니다.
+- **knn.ipynb**: K-Nearest Neighbors (KNN) 기반 분류 코드
+- **svm.ipynb**: Support Vector Machine (SVM) 기반 분류 코드
+- **naive_bayesian.ipynb**: Naive Bayes 기반 분류 코드
 
 ## 주의사항
 

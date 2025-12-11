@@ -11,7 +11,7 @@
 - **Main Report**: [KorPatBERT_CenterLoss.pdf](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/KorPatBERT_CenterLoss.pdf)
 - **Main Notebook**: [korpatbert-centerLoss.ipynb](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/src/korpatbert/korpatbert-centerLoss.ipynb)
 - **Main Presentation**: [presentation.pptx](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pptx), [presentation.pdf](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/doc/presentation.pdf)
-- **Award**: ![Award.jpg](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg), [picture](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award_picture.jpg)
+- **Award**: [Award.jpg](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award.jpg), [picture](https://github.com/jaewonE/KorPatBERT-CenterLoss/blob/main/Award_picture.jpg)
 
 ## Abstract
 
